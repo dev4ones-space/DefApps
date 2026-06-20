@@ -1,0 +1,6 @@
+id=defapps_installer
+name=DefApps
+version=v1.0
+versionCode=1
+author=dev4ones
+description=A standalone module to install FOSS apps as alternatives for general use (Material Files, ...)
