@@ -16,10 +16,10 @@ jobs:
         run: bash collect-apks.sh
 
       - name: ZIP module
-        run: zip -r defapps.zip module.prop customize.sh system
+        run: zip defapps.zip ./*
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: defapps
+          name: Module
           path: defapps.zip
