@@ -1,0 +1,24 @@
+name: Build Magisk DefApps
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 4 * * *'   # 04:00 UTC everyday
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Collect APKs
+        run: bash collect-apks.sh
+
+      - name: Zip module
+        run: zip -r defapps.zip module.prop customize.sh system
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: defapps
+          path: defapps.zip
